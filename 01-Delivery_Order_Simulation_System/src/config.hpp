@@ -1,0 +1,21 @@
+// 参数设定
+#define INIT_X 8                     // 骑手初始横坐标
+#define INIT_Y 9                     // 骑手初始纵坐标
+#define SECOND_PER_TIME_UNIT 2       // 每个时间单元的真实时间，单位为秒
+#define REFRESH_INTERVAL 100         // 图形界面刷新间隔
+#define TIME_OUT_LIMIT 30            // 超时时限
+#define BANKRUPT_LIMIT 60            // 破产时限
+#define IN_FILE "sales.txt"          // 输入文件
+#define OUT_FILE "output.txt"        // 输出文件
+#define AREA_SIZE 17                 // 区域尺寸
+#define INIT_MONEY 1000              // 初始金额
+#define RIDER_PRICE 300              // 骑手价格
+#define FINE 50                      // 超时订单罚款
+#define INCOME 10                    // 完成订单收入
+#define DIST_MAX 32                  // 距离上限
+#define EDGE_WIDTH 30                // 图形界面留边宽度
+#define CELL_SIZE 40                 // 方格尺寸
+#define STREET_WIDTH 30              // 街道宽度
+#define MIN(a,b) ((a)>(b)?(b):(a))	 // 更小值
+#define MAX(a,b) ((a)<(b)?(b):(a))	 // 更大值
+#define INF 0x3f3f3f3f				 // 最大值
