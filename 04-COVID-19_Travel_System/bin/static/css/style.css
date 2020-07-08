@@ -1,0 +1,163 @@
+@font-face {
+  font-family: 'digit';
+  src: url('/assets/digit.ttf');
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+.container-fluid {
+  height: 100%;
+  padding: 0;
+  background: #f0f0f0;
+}
+
+#dashboard {
+  height: 100%;
+  margin: 0;
+}
+
+#map {
+  padding: 0;
+  height: 100%;
+}
+
+#right {
+  position: relative;
+  padding: 10px;
+}
+
+#control {
+  height: 100%;
+  border-radius: 20px;
+  padding: 10px;
+  background: rgba(0, 255, 0, 0.1);
+}
+
+#title {
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+hr {
+  margin-top: 0;
+}
+
+.subtitle {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+#digital {
+  font-family: digit;
+  font-size: 200%;
+}
+
+.clock {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#time-control {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+#time-control p {
+  margin-bottom: 0;
+}
+
+.control-btn button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.travel-card {
+  width: 18rem;
+  margin-right: 0.3rem;
+  float: left;
+}
+
+.travel-card li {
+  padding: 0 0.2rem !important;
+  font-size: 0.9rem;
+}
+
+.travel-card .card-header {
+  padding: 0 0.8rem !important;
+  font-weight: bolder;
+}
+
+.travel-card .card-footer {
+  padding: 0 0.5rem !important;
+}
+
+@-webkit-keyframes bounce-right {
+  25% {
+    -webkit-transform: translateX(-1px);
+  }
+  50%, 100% {
+    -webkit-transform: translateX(0);
+  }
+  75% {
+    -webkit-transform: translateX(1px);
+  }
+}
+
+@keyframes bounce-right {
+  25% {
+    transform: translateX(-1px);
+  }
+  50%, 100% {
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateX(1px);
+  }
+}
+
+.animate-bounce-right{
+  -webkit-animation: bounce-right 0.8s linear infinite;
+  animation: bounce-right 0.8s linear infinite;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-rotate{
+  -webkit-animation: rotate 1.2s linear infinite;
+  animation: rotate 1.2s linear infinite;
+}
+
+i {
+  width: 1rem;
+  text-align: center;
+}
+
+.badge {
+  float: right;
+}

@@ -15,6 +15,6 @@
 - 计算机网络
   - [数据链路层滑动窗口协议的设计与实现](03-Data_Link_Layer_Sliding_Window_Protocol)
 - 数据结构课程设计
-  - COVID-19 疫情环境下低风险旅行模拟系统（TODO）
+  - [COVID-19 疫情环境下低风险旅行模拟系统](04-COVID-19_Travel_System)
 - 面向对象程序设计实践（C++）
   - 宠物小精灵对战系统（TODO）

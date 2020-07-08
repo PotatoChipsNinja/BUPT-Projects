@@ -1,0 +1,687 @@
+{
+  "Port": 5000,
+  "City": [
+    { "CityName": "北京", "CityRisk": 0.9 }, 
+    { "CityName": "天津", "CityRisk": 0.5 }, 
+    { "CityName": "重庆", "CityRisk": 0.9 }, 
+    { "CityName": "上海", "CityRisk": 0.9 }, 
+    { "CityName": "石家庄", "CityRisk": 0.5 }, 
+    { "CityName": "沈阳", "CityRisk": 0.5 }, 
+    { "CityName": "哈尔滨", "CityRisk": 0.9 }, 
+    { "CityName": "杭州", "CityRisk": 0.9 }, 
+    { "CityName": "福州", "CityRisk": 0.5 }, 
+    { "CityName": "济南", "CityRisk": 0.5 }, 
+    { "CityName": "广州", "CityRisk": 0.9 }, 
+    { "CityName": "武汉", "CityRisk": 0.9 }, 
+    { "CityName": "成都", "CityRisk": 0.5 }, 
+    { "CityName": "昆明", "CityRisk": 0.5 }, 
+    { "CityName": "兰州", "CityRisk": 0.2 }, 
+    { "CityName": "台北", "CityRisk": 0.5 }, 
+    { "CityName": "南宁", "CityRisk": 0.5 }, 
+    { "CityName": "银川", "CityRisk": 0.2 }, 
+    { "CityName": "太原", "CityRisk": 0.5 }, 
+    { "CityName": "长春", "CityRisk": 0.9 }, 
+    { "CityName": "南京", "CityRisk": 0.5 }, 
+    { "CityName": "合肥", "CityRisk": 0.5 }, 
+    { "CityName": "南昌", "CityRisk": 0.5 }, 
+    { "CityName": "郑州", "CityRisk": 0.5 }, 
+    { "CityName": "长沙", "CityRisk": 0.9 }, 
+    { "CityName": "海口", "CityRisk": 0.5 }, 
+    { "CityName": "贵阳", "CityRisk": 0.2 }, 
+    { "CityName": "西安", "CityRisk": 0.5 }, 
+    { "CityName": "西宁", "CityRisk": 0.2 }, 
+    { "CityName": "呼和浩特", "CityRisk": 0.2 }, 
+    { "CityName": "拉萨", "CityRisk": 0.2 }, 
+    { "CityName": "乌鲁木齐", "CityRisk": 0.2 }
+  ],
+  "Transport": [
+    {
+      "TransportType": "汽车",
+      "TransportRisk": 2,
+      "ScheduleList": [
+        {
+          "Identity": "QC1",
+          "OriginCity": "北京",
+          "DestinationCity": "天津",
+          "DepartureTime": 10,
+          "Duration": 1
+        },
+        {
+          "Identity": "QC2",
+          "OriginCity": "北京",
+          "DestinationCity": "重庆",
+          "DepartureTime": 2,
+          "Duration": 18
+        },
+        {
+          "Identity": "QC3",
+          "OriginCity": "北京",
+          "DestinationCity": "石家庄",
+          "DepartureTime": 10,
+          "Duration": 4
+        },
+        {
+          "Identity": "QC4",
+          "OriginCity": "杭州",
+          "DestinationCity": "福州",
+          "DepartureTime": 14,
+          "Duration": 9
+        },
+        {
+          "Identity": "QC5",
+          "OriginCity": "天津",
+          "DestinationCity": "北京",
+          "DepartureTime": 5,
+          "Duration": 1
+        },
+        {
+          "Identity": "QC6",
+          "OriginCity": "天津",
+          "DestinationCity": "济南",
+          "DepartureTime": 5,
+          "Duration": 4
+        },
+        {
+          "Identity": "QC7",
+          "OriginCity": "贵阳",
+          "DestinationCity": "昆明",
+          "DepartureTime": 1,
+          "Duration": 6
+        },
+        {
+          "Identity": "QC8",
+          "OriginCity": "天津",
+          "DestinationCity": "兰州",
+          "DepartureTime": 15,
+          "Duration": 17
+        },
+        {
+          "Identity": "QC9",
+          "OriginCity": "重庆",
+          "DestinationCity": "南宁",
+          "DepartureTime": 17,
+          "Duration": 13
+        },
+        {
+          "Identity": "QC10",
+          "OriginCity": "北京",
+          "DestinationCity": "银川",
+          "DepartureTime": 6,
+          "Duration": 14
+        },
+        {
+          "Identity": "QC11",
+          "OriginCity": "沈阳",
+          "DestinationCity": "长春",
+          "DepartureTime": 18,
+          "Duration": 3
+        },
+        {
+          "Identity": "QC12",
+          "OriginCity": "上海",
+          "DestinationCity": "合肥",
+          "DepartureTime": 14,
+          "Duration": 6
+        },
+        {
+          "Identity": "QC13",
+          "OriginCity": "广州",
+          "DestinationCity": "海口",
+          "DepartureTime": 15,
+          "Duration": 8
+        },
+        {
+          "Identity": "QC14",
+          "OriginCity": "上海",
+          "DestinationCity": "贵阳",
+          "DepartureTime": 5,
+          "Duration": 18
+        },
+        {
+          "Identity": "QC15",
+          "OriginCity": "西安",
+          "DestinationCity": "西宁",
+          "DepartureTime": 3,
+          "Duration": 11
+        },
+        {
+          "Identity": "QC16",
+          "OriginCity": "石家庄",
+          "DestinationCity": "北京",
+          "DepartureTime": 3,
+          "Duration": 3
+        },
+        {
+          "Identity": "QC17",
+          "OriginCity": "石家庄",
+          "DestinationCity": "呼和浩特",
+          "DepartureTime": 12,
+          "Duration": 7
+        },
+        {
+          "Identity": "QC18",
+          "OriginCity": "西宁",
+          "DestinationCity": "乌鲁木齐",
+          "DepartureTime": 12,
+          "Duration": 20
+        },
+        {
+          "Identity": "QC19",
+          "OriginCity": "沈阳",
+          "DestinationCity": "北京",
+          "DepartureTime": 8,
+          "Duration": 7
+        },
+        {
+          "Identity": "QC20",
+          "OriginCity": "昆明",
+          "DestinationCity": "成都",
+          "DepartureTime": 12,
+          "Duration": 10
+        },
+        {
+          "Identity": "QC21",
+          "OriginCity": "长春",
+          "DestinationCity": "北京",
+          "DepartureTime": 4,
+          "Duration": 10
+        },
+        {
+          "Identity": "QC22",
+          "OriginCity": "南昌",
+          "DestinationCity": "武汉",
+          "DepartureTime": 18,
+          "Duration": 4
+        },
+        {
+          "Identity": "QC23",
+          "OriginCity": "海口",
+          "DestinationCity": "广州",
+          "DepartureTime": 19,
+          "Duration": 8
+        },
+        {
+          "Identity": "QC24",
+          "OriginCity": "呼和浩特",
+          "DestinationCity": "北京",
+          "DepartureTime": 17,
+          "Duration": 6
+        },
+        {
+          "Identity": "QC25",
+          "OriginCity": "拉萨",
+          "DestinationCity": "成都",
+          "DepartureTime": 1,
+          "Duration": 10
+        },
+        {
+          "Identity": "QC26",
+          "OriginCity": "西安",
+          "DestinationCity": "武汉",
+          "DepartureTime": 8,
+          "Duration": 8
+        },
+        {
+          "Identity": "QC27",
+          "OriginCity": "武汉",
+          "DestinationCity": "西安",
+          "DepartureTime": 9,
+          "Duration": 8
+        },
+        {
+          "Identity": "QC28",
+          "OriginCity": "武汉",
+          "DestinationCity": "重庆",
+          "DepartureTime": 13,
+          "Duration": 10
+        },
+        {
+          "Identity": "QC29",
+          "OriginCity": "重庆",
+          "DestinationCity": "武汉",
+          "DepartureTime": 10,
+          "Duration": 10
+        },
+        {
+          "Identity": "QC30",
+          "OriginCity": "郑州",
+          "DestinationCity": "济南",
+          "DepartureTime": 10,
+          "Duration": 5
+        },
+        {
+          "Identity": "QC31",
+          "OriginCity": "济南",
+          "DestinationCity": "郑州",
+          "DepartureTime": 4,
+          "Duration": 5
+        },
+        {
+          "Identity": "QC32",
+          "OriginCity": "福州",
+          "DestinationCity": "杭州",
+          "DepartureTime": 19,
+          "Duration": 9
+        },
+        {
+          "Identity": "QC33",
+          "OriginCity": "济南",
+          "DestinationCity": "天津",
+          "DepartureTime": 18,
+          "Duration": 4
+        },
+        {
+          "Identity": "QC34",
+          "OriginCity": "昆明",
+          "DestinationCity": "贵阳",
+          "DepartureTime": 11,
+          "Duration": 6
+        },
+        {
+          "Identity": "QC35",
+          "OriginCity": "长春",
+          "DestinationCity": "沈阳",
+          "DepartureTime": 11,
+          "Duration": 3
+        },
+        {
+          "Identity": "QC36",
+          "OriginCity": "合肥",
+          "DestinationCity": "上海",
+          "DepartureTime": 16,
+          "Duration": 6
+        },
+        {
+          "Identity": "QC37",
+          "OriginCity": "西宁",
+          "DestinationCity": "西安",
+          "DepartureTime": 16,
+          "Duration": 11
+        },
+        {
+          "Identity": "QC38",
+          "OriginCity": "呼和浩特",
+          "DestinationCity": "石家庄",
+          "DepartureTime": 8,
+          "Duration": 7
+        },
+        {
+          "Identity": "QC39",
+          "OriginCity": "成都",
+          "DestinationCity": "昆明",
+          "DepartureTime": 8,
+          "Duration": 10
+        },
+        {
+          "Identity": "QC40",
+          "OriginCity": "北京",
+          "DestinationCity": "长春",
+          "DepartureTime": 6,
+          "Duration": 10
+        },
+        {
+          "Identity": "QC41",
+          "OriginCity": "武汉",
+          "DestinationCity": "南昌",
+          "DepartureTime": 17,
+          "Duration": 4
+        },
+        {
+          "Identity": "QC42",
+          "OriginCity": "成都",
+          "DestinationCity": "拉萨",
+          "DepartureTime": 20,
+          "Duration": 10
+        },
+        {
+          "Identity": "QC43",
+          "OriginCity": "兰州",
+          "DestinationCity": "银川",
+          "DepartureTime": 15,
+          "Duration": 4
+        },
+        {
+          "Identity": "QC44",
+          "OriginCity": "银川",
+          "DestinationCity": "兰州",
+          "DepartureTime": 15,
+          "Duration": 4
+        },
+        {
+          "Identity": "QC45",
+          "OriginCity": "合肥",
+          "DestinationCity": "南京",
+          "DepartureTime": 9,
+          "Duration": 2
+        },
+        {
+          "Identity": "QC46",
+          "OriginCity": "南京",
+          "DestinationCity": "合肥",
+          "DepartureTime": 9,
+          "Duration": 3
+        },
+        {
+          "Identity": "QC47",
+          "OriginCity": "南京",
+          "DestinationCity": "杭州",
+          "DepartureTime": 13,
+          "Duration": 3
+        },
+        {
+          "Identity": "QC48",
+          "OriginCity": "杭州",
+          "DestinationCity": "南京",
+          "DepartureTime": 7,
+          "Duration": 3
+        },
+        {
+          "Identity": "QC49",
+          "OriginCity": "广州",
+          "DestinationCity": "南宁",
+          "DepartureTime": 18,
+          "Duration": 7
+        },
+        {
+          "Identity": "QC50",
+          "OriginCity": "南宁",
+          "DestinationCity": "广州",
+          "DepartureTime": 16,
+          "Duration": 7
+        }
+      ]
+    },
+    {
+      "TransportType": "火车",
+      "TransportRisk": 5,
+      "ScheduleList": [
+        {
+          "Identity": "Z21",
+          "OriginCity": "北京",
+          "DestinationCity": "拉萨",
+          "DepartureTime": 20,
+          "Duration": 40
+        },
+        {
+          "Identity": "G3154",
+          "OriginCity": "西安",
+          "DestinationCity": "南京",
+          "DepartureTime": 9,
+          "Duration": 7
+        },
+        {
+          "Identity": "G1224",
+          "OriginCity": "杭州",
+          "DestinationCity": "沈阳",
+          "DepartureTime": 8,
+          "Duration": 10
+        },
+        {
+          "Identity": "D23",
+          "OriginCity": "北京",
+          "DestinationCity": "沈阳",
+          "DepartureTime": 15,
+          "Duration": 5
+        },
+        {
+          "Identity": "G3182",
+          "OriginCity": "兰州",
+          "DestinationCity": "上海",
+          "DepartureTime": 11,
+          "Duration": 11
+        },
+        {
+          "Identity": "Z285",
+          "OriginCity": "郑州",
+          "DestinationCity": "长沙",
+          "DepartureTime": 3,
+          "Duration": 8
+        },
+        {
+          "Identity": "G1502",
+          "OriginCity": "长沙",
+          "DestinationCity": "杭州",
+          "DepartureTime": 15,
+          "Duration": 4
+        },
+        {
+          "Identity": "G42",
+          "OriginCity": "合肥",
+          "DestinationCity": "济南",
+          "DepartureTime": 11,
+          "Duration": 3
+        },
+        {
+          "Identity": "G44",
+          "OriginCity": "济南",
+          "DestinationCity": "北京",
+          "DepartureTime": 21,
+          "Duration": 2
+        },
+        {
+          "Identity": "D2226",
+          "OriginCity": "福州",
+          "DestinationCity": "武汉",
+          "DepartureTime": 8,
+          "Duration": 6
+        },
+        {
+          "Identity": "G2856",
+          "OriginCity": "南宁",
+          "DestinationCity": "成都",
+          "DepartureTime": 9,
+          "Duration": 9
+        },
+        {
+          "Identity": "Z70",
+          "OriginCity": "乌鲁木齐",
+          "DestinationCity": "北京",
+          "DepartureTime": 14,
+          "Duration": 30
+        },
+        {
+          "Identity": "G718",
+          "OriginCity": "哈尔滨",
+          "DestinationCity": "沈阳",
+          "DepartureTime": 13,
+          "Duration": 3
+        },
+        {
+          "Identity": "G319",
+          "OriginCity": "贵阳",
+          "DestinationCity": "广州",
+          "DepartureTime": 10,
+          "Duration": 4
+        },
+        {
+          "Identity": "G646",
+          "OriginCity": "广州",
+          "DestinationCity": "南昌",
+          "DepartureTime": 14,
+          "Duration": 4
+        },
+        {
+          "Identity": "D2570",
+          "OriginCity": "西宁",
+          "DestinationCity": "西安",
+          "DepartureTime": 9,
+          "Duration": 5
+        },
+        {
+          "Identity": "K1331",
+          "OriginCity": "银川",
+          "DestinationCity": "太原",
+          "DepartureTime": 12,
+          "Duration": 8
+        },
+        {
+          "Identity": "G604",
+          "OriginCity": "太原",
+          "DestinationCity": "北京",
+          "DepartureTime": 7,
+          "Duration": 3
+        },
+        {
+          "Identity": "G692",
+          "OriginCity": "郑州",
+          "DestinationCity": "太原",
+          "DepartureTime": 12,
+          "Duration": 4
+        },
+        {
+          "Identity": "D2272",
+          "OriginCity": "武汉",
+          "DestinationCity": "南京",
+          "DepartureTime": 15,
+          "Duration": 3
+        },
+        {
+          "Identity": "G120",
+          "OriginCity": "南京",
+          "DestinationCity": "北京",
+          "DepartureTime": 9,
+          "Duration": 4
+        },
+        {
+          "Identity": "D29",
+          "OriginCity": "北京",
+          "DestinationCity": "哈尔滨",
+          "DepartureTime": 6,
+          "Duration": 8
+        },
+        {
+          "Identity": "G69",
+          "OriginCity": "北京",
+          "DestinationCity": "武汉",
+          "DepartureTime": 13,
+          "Duration": 5
+        },
+        {
+          "Identity": "G401",
+          "OriginCity": "北京",
+          "DestinationCity": "郑州",
+          "DepartureTime": 11,
+          "Duration": 3
+        },
+        {
+          "Identity": "G203",
+          "OriginCity": "北京",
+          "DestinationCity": "南京",
+          "DepartureTime": 18,
+          "Duration": 4
+        },
+        {
+          "Identity": "G2187",
+          "OriginCity": "成都",
+          "DestinationCity": "杭州",
+          "DepartureTime": 9,
+          "Duration": 12
+        },
+        {
+          "Identity": "G349",
+          "OriginCity": "北京",
+          "DestinationCity": "成都",
+          "DepartureTime": 15,
+          "Duration": 7
+        },
+        {
+          "Identity": "G1372",
+          "OriginCity": "贵阳",
+          "DestinationCity": "上海",
+          "DepartureTime": 10,
+          "Duration": 9
+        },
+        {
+          "Identity": "G1932",
+          "OriginCity": "上海",
+          "DestinationCity": "西安",
+          "DepartureTime": 13,
+          "Duration": 7
+        },
+        {
+          "Identity": "D30",
+          "OriginCity": "哈尔滨",
+          "DestinationCity": "北京",
+          "DepartureTime": 14,
+          "Duration": 7
+        }
+      ]
+    },
+    {
+      "TransportType": "飞机",
+      "TransportRisk": 9,
+      "ScheduleList": [
+        {
+          "Identity": "CA1519",
+          "OriginCity": "北京",
+          "DestinationCity": "上海",
+          "DepartureTime": 9,
+          "Duration": 2
+        },
+        {
+          "Identity": "CZ3549",
+          "OriginCity": "上海",
+          "DestinationCity": "广州",
+          "DepartureTime": 6,
+          "Duration": 2
+        },
+        {
+          "Identity": "CA4115",
+          "OriginCity": "成都",
+          "DestinationCity": "北京",
+          "DepartureTime": 11,
+          "Duration": 3
+        },
+        {
+          "Identity": "CZ3099",
+          "OriginCity": "广州",
+          "DestinationCity": "北京",
+          "DepartureTime": 9,
+          "Duration": 3
+        },
+        {
+          "Identity": "CZ3484",
+          "OriginCity": "成都",
+          "DestinationCity": "广州",
+          "DepartureTime": 21,
+          "Duration": 2
+        },
+        {
+          "Identity": "MU5457",
+          "OriginCity": "杭州",
+          "DestinationCity": "北京",
+          "DepartureTime": 14,
+          "Duration": 2
+        },
+        {
+          "Identity": "HU7462",
+          "OriginCity": "杭州",
+          "DestinationCity": "广州",
+          "DepartureTime": 20,
+          "Duration": 2
+        },
+        {
+          "Identity": "CZ2805",
+          "OriginCity": "重庆",
+          "DestinationCity": "广州",
+          "DepartureTime": 7,
+          "Duration": 2
+        },
+        {
+          "Identity": "CA1224",
+          "OriginCity": "西安",
+          "DestinationCity": "北京",
+          "DepartureTime": 15,
+          "Duration": 2
+        },
+        {
+          "Identity": "CA4137",
+          "OriginCity": "重庆",
+          "DestinationCity": "北京",
+          "DepartureTime": 8,
+          "Duration": 3
+        }
+      ]
+    }
+  ]
+}

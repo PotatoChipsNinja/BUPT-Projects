@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>旅行规划与模拟系统</title>
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/clock.css">
+  <link rel="stylesheet" type="text/css" href="/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="/css/solid.css">
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row" id="dashboard">
+      <div class="col-7" id="map"></div>
+      <div class="col-5 text-center" id="right">
+        <div id="control">
+          <h1 id="title">旅行规划与模拟系统</h1>
+          <img src="/assets/badge/license.svg">
+          <img src="/assets/badge/version.svg">
+          <img src="/assets/badge/author.svg">
+          <div class="row">
+            <div class="col">
+              <p class="subtitle">时间信息</p>
+              <hr>
+            </div>
+            <div class="col">
+              <p class="subtitle">控制面板</p>
+              <hr>
+            </div>
+          </div>
+          <div class="row align-items-center">
+            <div class="col">
+              <div class="row justify-content-center align-items-center">
+                <div class="clock"></div>
+                <div id="time-control">
+                  <p>当前时间</p>
+                  <p id="digital">00:00</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row align-items-center">
+                <div class="col control-btn" style="padding-right: 0;">
+                  <button type="button" id="time-btn" class="btn btn-sm btn-success" onclick="StartTimer()"><i class="fas fa-play"></i> 开始模拟</button>
+                  <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#addTravelModal" onclick="ClearForm()"><i class="fas fa-paper-plane"></i> 新增规划</button>
+                </div>
+                <div class="col control-btn" style="padding-left: 0;">
+                  <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#transMap"><i class="fas fa-map-marked-alt"></i> 查看交通</button>
+                  <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exit" onclick=""><i class="fas fa-power-off"></i> 关闭系统</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="subtitle">状态信息</p>
+          <hr>
+          <div class="alert alert-success text-left" role="alert">
+            <div id="welcome">
+              <h4 class="alert-heading">欢迎使用！</h4>
+              <p>您可以通过“控制面板”规划您的旅程或控制模拟的进行，所有旅客的状态信息将在此处显示</p>
+              <hr>
+            </div>
+            <p class="mb-0" id="traveler-info"><i class="fas fa-fa-info-circle"></i> 当前没有任何旅程正在进行</p>
+          </div>
+          <div style="overflow: auto;" class="text-left">
+            <div id="travel-panel"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="addTravelModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">新增行程规划</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="form-group col">
+              <label for="origin">出发城市</label>
+              <select id="origin" class="form-control">
+                <option selected>请选择...</option>
+              </select>
+            </div>
+            <div class="form-group col">
+              <label for="destination">目的城市</label>
+              <select id="destination" class="form-control">
+                <option selected>请选择...</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" checked>
+              <label class="custom-control-label" for="customRadioInline1">最小风险策略</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+              <label class="custom-control-label" for="customRadioInline2">限时最小风险策略</label>
+            </div>
+          </div>
+          <div class="form-group" id="form-time-limit" hidden>
+            <label for="time-limit">时间限制（小时）</label>
+            <input type="text" class="form-control" id="time-limit" oninput="value=value.replace(/[^\d]/g,'')" placeholder="请输入时间限制">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary" onclick="AddTravel()">开始规划</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="infoModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">提示</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="info-content"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="transMap" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">交通线路一览</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="trans-map"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="exit" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">确认关闭</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>您确定要关闭旅行规划与模拟系统吗？</p>
+          <ul>
+            <li>如果您只是暂时离开，可以仅关闭本 Web UI 页面，这样后端程序将不会被关闭，此后您可以随时重新访问此页面，任何数据都不会丢失。</li>
+            <li>如果您希望彻底关闭本系统的后端程序，请点击按钮“是”，这样您将无法再访问本页，但行程规划等信息您可以在日志文件中查看。</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">否，暂不关闭</button>
+          <button type="button" class="btn btn-primary" onclick="Exit()">是，确认关闭</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="/js/jquery.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+  <script type="text/javascript" src="/js/highmaps.js"></script>
+  <script type="text/javascript" src="/js/proj4.js"></script>
+  <script type="text/javascript" src="/assets/map.js"></script>
+  <script type="text/javascript" src="/assets/city.js"></script>
+  <script type="text/javascript" src="/js/main.js"></script>
+</body>
+</html>
