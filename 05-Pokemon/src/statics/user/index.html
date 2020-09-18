@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>用户列表 - 宠物小精灵在线对战平台</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/mermaid.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/user.css">
+  <script type="text/javascript" src="/js/check-login.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand pr-3" href="/">
+      <img src="/assets/logo.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+      宠物小精灵在线对战平台
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">首页</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pack">精灵背包</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/battle">开始战斗</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/wiki">精灵百科</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/user">用户列表</a>
+        </li>
+      </ul>
+      <div class="form-inline my-2 my-lg-0">
+        <button class="btn btn-outline-danger my-2 my-sm-0" onclick="logOut();"><i class="fas fa-sign-out-alt"></i> 登出</button>
+      </div>
+    </div>
+  </nav>
+  <div class="container my-5">
+    <div class="jumbotron m-auto col-lg-10 py-4">
+      <div class="d-flex justify-content-between">
+        <p class="lead my-0"><i class="fas fa-users"></i> 用户列表</p>
+        <p class="lead my-0">用户总数: <span id="all-user-num"></span>, 当前在线: <span id="online-user-num"></span></p>
+      </div>
+      <hr class="mt-2 mb-4">
+      <div id="table"></div>
+    </div>
+  </div>
+  <script type="text/javascript" src="/js/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="/js/gridjs.production.min.js"></script>
+  <script type="text/javascript" src="/js/user.js"></script>
+  <script type="text/javascript" src="/js/fontawesome.min.js"></script>
+  <script type="text/javascript" src="/js/solid.js"></script>
+</body>
+</html>

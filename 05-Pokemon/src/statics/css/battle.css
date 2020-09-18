@@ -1,0 +1,252 @@
+.left-icon {
+    display: inline-block;
+    width: 2rem;
+    text-align: center;
+}
+
+.big-icon {
+    height: 100%;
+    width: 100%;
+    font-size: 4rem;
+}
+
+.card-img-top {
+    height: 6rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.card-img-bulbasaur {
+    background-image: url('/assets/bulbasaur.png');
+}
+
+.card-img-charmander {
+    background-image: url('/assets/charmander.png');
+}
+
+.card-img-squirtle {
+    background-image: url('/assets/squirtle.png');
+}
+
+.card-img-pikachu {
+    background-image: url('/assets/pikachu.png');
+}
+
+.card-img-gengar {
+    background-image: url('/assets/gengar.png');
+}
+
+.list-group-item {
+    background-color: transparent;
+}
+
+.left-icon-sm {
+    display: inline-block;
+    width: 1.2rem;
+    text-align: center;
+}
+
+.card-pokemon {
+    width: 45%;
+    display: inline-block;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.card-left {
+    border-right: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+}
+
+.card-left-img {
+    min-height: 6rem;
+    height: 100%;
+    padding-bottom: 2rem;
+}
+
+.card-left-img-bg {
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.card-left-text {
+    text-align: center;
+    margin-top: -2rem;
+    height: 2rem;
+    line-height: 2.3rem;
+    border-radius: 0.25rem;
+    text-shadow: 0.1rem 0.1rem 0.2rem #000000, 0.1rem -0.1rem 0.2rem #000000, -0.1rem 0.1rem 0.2rem #000000, -0.1rem -0.1rem 0.2rem #000000;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.card-text-strength {
+    background-image: linear-gradient(#ffffff, #cd5c5c, #cd5c5c, #cd5c5c);
+}
+
+.card-text-tank {
+    background-image: linear-gradient(#ffffff, #8e388e, #8e388e, #8e388e);
+}
+
+.card-text-defense {
+    background-image: linear-gradient(#ffffff, #71c671, #71c671, #71c671);
+}
+
+.card-text-swift {
+    background-image: linear-gradient(#ffffff, #9198f5, #9198f5, #9198f5);
+}
+
+#speed-input {
+    width: 8rem;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.battle-panel-left {
+    height: 5rem;
+    padding-left: 5rem;
+}
+
+.battle-panel-right {
+    height: 5rem;
+    padding-right: 5rem;
+}
+
+.battle-avatar-left {
+    width: 5rem;
+    margin-left: -5rem;
+    background-color: transparent;
+    border: 0.2rem solid #a0a0a0;
+    border-radius: 1rem;
+    line-height: 100%;
+    font-size: 4rem;
+    text-align: center;
+    color: #a0a0a0;
+}
+
+.battle-avatar-right {
+    width: 5rem;
+    margin-right: -5rem;
+    background-color: transparent;
+    border: 0.2rem solid #a0a0a0;
+    border-radius: 1rem;
+    line-height: 100%;
+    font-size: 4rem;
+    text-align: center;
+    color: #a0a0a0;
+}
+
+.battle-panel-hp-bar-left {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto 0 0;
+}
+
+.battle-panel-hp-bar-right {
+    width: 100%;
+    height: 100%;
+    margin: 0 0 0 auto;
+}
+
+.battle-panel-hp {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: transparent;
+    position: relative;
+    top: -0.5rem;
+    z-index: 10;
+    color: #000000;
+    font-weight: bold;
+    text-shadow: 0 0 0.1rem #ffffff;
+}
+
+@font-face {
+    font-family: 'digit';
+    src: url('/assets/digit.ttf');
+}
+
+.battle-time {
+    font-family: digit;
+    font-size: 2rem;
+}
+
+.battle-pokemon-img {
+    height: 8rem;
+    width: 8rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#pokemon-user {
+    transform: rotateY(180deg);
+}
+
+#simulation-control-panel {
+    height: 5rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+#battle-log {
+    font-size: 0.8rem;
+    resize: none;
+    height: 5rem;
+    background-color: transparent;
+}
+
+#adjust-speed-card {
+    border: none;
+    background-color: transparent !important;
+}
+
+@keyframes to-right {
+    0% {margin-left: 0;}
+    50% {margin-left: 60%;}
+    100% {margin-left: 0;}
+}
+
+@keyframes to-left {
+    0% {margin-right: 0;}
+    50% {margin-right: 60%;}
+    100% {margin-right: 0;}
+}
+
+.HP-info {
+    width: 8rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+}
+
+@keyframes bounce-right {
+  25% {
+    transform: translateX(-3px);
+  }
+  50%, 100% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateX(3px);
+  }
+}
+
+.animate-bounce-right{
+  animation: bounce-right 1s linear infinite;
+  color: #17a2b8;
+}
+
+#card-pokemon-finish {
+    width: 55%;
+    display: inline-block;
+    margin-left: 2%;
+    margin-right: 2%;
+}

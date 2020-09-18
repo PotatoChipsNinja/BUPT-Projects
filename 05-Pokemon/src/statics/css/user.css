@@ -1,0 +1,34 @@
+.gridjs-sort {
+    border: 0;
+    background-color: transparent;
+}
+
+.icon-green {
+    color: green;
+}
+
+.icon-red {
+    color: red;
+}
+
+.medal {
+    display: inline-block;
+    width: 2rem;
+    text-align: center;
+}
+
+.medal-gray {
+    color: #e0e0d0;
+}
+
+.medal-bronze {
+    color: #cd6839;
+}
+
+.medal-silver {
+    color: #a0a0b0;
+}
+
+.medal-gold {
+    color: #d9d919;
+}

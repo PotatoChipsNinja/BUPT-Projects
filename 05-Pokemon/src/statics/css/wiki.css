@@ -1,0 +1,53 @@
+.left-icon {
+    display: inline-block;
+    width: 2rem;
+    text-align: center;
+}
+
+.btn-link {
+    text-decoration: none !important;
+}
+
+th {
+    text-align: center;
+    vertical-align: middle !important;
+}
+
+td {
+    text-align: center;
+    vertical-align: middle !important;
+}
+
+#table-exp {
+    max-width: 18rem;
+}
+
+#table-medal-1 {
+    max-width: 23rem;
+}
+
+#table-medal-2 {
+    max-width: 26rem;
+}
+
+.medal {
+    display: inline-block;
+    width: 2rem;
+    text-align: center;
+}
+
+.medal-gray {
+    color: #e0e0d0;
+}
+
+.medal-bronze {
+    color: #cd6839;
+}
+
+.medal-silver {
+    color: #a0a0b0;
+}
+
+.medal-gold {
+    color: #d9d919;
+}

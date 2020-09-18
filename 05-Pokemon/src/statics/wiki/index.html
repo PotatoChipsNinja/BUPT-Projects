@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>精灵百科 - 宠物小精灵在线对战平台</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/wiki.css">
+  <script type="text/javascript" src="/js/check-login.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand pr-3" href="/">
+      <img src="/assets/logo.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+      宠物小精灵在线对战平台
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">首页</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pack">精灵背包</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/battle">开始战斗</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/wiki">精灵百科</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user">用户列表</a>
+        </li>
+      </ul>
+      <div class="form-inline my-2 my-lg-0">
+        <button class="btn btn-outline-danger my-2 my-sm-0" onclick="logOut();"><i class="fas fa-sign-out-alt"></i> 登出</button>
+      </div>
+    </div>
+  </nav>
+  <div class="container my-5">
+    <div class="jumbotron m-auto col-lg-10 py-4">
+      <div class="d-flex justify-content-between">
+        <p class="lead my-0"><i class="fas fa-book"></i> 精灵百科</p>
+      </div>
+      <hr class="mt-2 mb-4">
+      <div class="accordion" id="accordionExample">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed p-0" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <p class="lead m-0"><span class="left-icon"><i class="fas fa-gamepad-alt"></i></span> 游戏机制</p>
+              </button>
+            </h2>
+          </div>
+          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+              <ul class="pl-3">
+                <li>每位新注册的用户都将获得 3 只随机产生的 1 级精灵作为初始精灵</li>
+                <li>每只精灵都具有种类、名称、等级、经验值、攻击力、防御力、生命值、攻击间隔等属性，这些属性将决定精灵在战斗中的表现</li>
+                <li>精灵种类共有<strong>力量型</strong>（高攻击力）、<strong>肉盾型</strong>（高生命值）、<strong>防御型</strong>（高防御力）和<strong>敏捷型</strong>（低攻击间隔）四种</li>
+                <li>目前共有<strong>妙蛙种子</strong>、<strong>小火龙</strong>、<strong>杰尼龟</strong>、<strong>皮卡丘</strong>和<strong>耿鬼</strong> 5 种精灵，每种精灵都具有共有的普通攻击技能和自己独有的特殊攻击技能</li>
+                <li>用户可通过决斗赛获得或失去精灵，当用户精灵数为 0 时，系统将自动为该用户分配一只 1 级精灵作为初始精灵</li>
+                <li>初始精灵的经验值为0，可通过战斗获得经验值，当累计经验值达到阈值后将会升级，升级规则如下表所示：
+                  <div class="row d-flex justify-content-center">
+                    <table class="table table-striped my-2" id="table-exp">
+                      <thead>
+                        <tr>
+                           <th>等级</th>
+                           <th>升至该级所需经验值</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                           <td>Lv.1</td>
+                           <td>0</td>
+                        </tr>
+                        <tr>
+                           <td>Lv.2</td>
+                           <td>5 (+5)</td>
+                        </tr>
+                        <tr>
+                           <td>Lv.3</td>
+                           <td>11 (+6)</td>
+                        </tr>
+                        <tr>
+                           <td>Lv.4</td>
+                           <td>18 (+7)</td>
+                        </tr>
+                        <tr>
+                           <td>Lv.5</td>
+                           <td>26 (+8)</td>
+                        </tr>
+                        <tr>
+                           <td>……</td>
+                           <td>……</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </li>
+                <li>精灵的各项属性将在精灵每次升级的同时得到一定程度的增强，升级时属性提升规则为：
+                  <ul>
+                    <li>攻击力、防御力、总 HP 各提升 10%-15%，具体提升比例在上述范围内随机产生</li>
+                    <li>力量型精灵攻击力额外再提升 10%</li>
+                    <li>肉盾型精灵总 HP 额外再提升 10%</li>
+                    <li>防御型精灵防御力额外再提升 10%</li>
+                  </ul>
+                </li>
+                <li>升至 15 级的精灵被称作高级精灵，当用户的精灵数量或高级精灵数量达到一定程度时用户将获得相应的奖章，各奖章获得条件如下表所示：
+                  <div class="row d-flex justify-content-between">
+                    <table class="table table-striped my-2 ml-3" id="table-medal-1">
+                      <thead>
+                        <tr>
+                           <th>奖章名称</th>
+                           <th>获得条件</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                           <td><span class="medal medal-bronze"><i class="fas fa-medal"></i></span> 精灵数量铜奖</td>
+                           <td>拥有 5 只或以上的精灵</td>
+                        </tr>
+                        <tr>
+                           <td><span class="medal medal-silver"><i class="fas fa-medal"></i></span> 精灵数量银奖</td>
+                           <td>拥有 10 只或以上的精灵</td>
+                        </tr>
+                        <tr>
+                           <td><span class="medal medal-gold"><i class="fas fa-medal"></i></span> 精灵数量金奖</td>
+                           <td>拥有 20 只或以上的精灵</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table class="table table-striped my-2 mr-3" id="table-medal-2">
+                      <thead>
+                        <tr>
+                           <th>奖章名称</th>
+                           <th>获得条件</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                           <td><span class="medal medal-bronze"><i class="fas fa-crown"></i></span> 高级精灵数量铜奖</td>
+                           <td>拥有 1 只或以上的高级精灵</td>
+                        </tr>
+                        <tr>
+                           <td><span class="medal medal-silver"><i class="fas fa-crown"></i></span> 高级精灵数量银奖</td>
+                           <td>拥有 3 只或以上的高级精灵</td>
+                        </tr>
+                        <tr>
+                           <td><span class="medal medal-gold"><i class="fas fa-crown"></i></span> 高级精灵数量金奖</td>
+                           <td>拥有 5 只或以上的高级精灵</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed p-0" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <p class="lead m-0"><span class="left-icon"><i class="fas fa-swords"></i></span> 战斗流程</p>
+              </button>
+            </h2>
+          </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            <div class="card-body">
+              <ul class="pl-3">
+                <li>战斗分为<strong>升级赛</strong>和<strong>决斗赛</strong>，用户需从虚拟对手列表中选择一只精灵作为对手，再派出自己拥有的一只精灵与虚拟对手进行战斗</li>
+                <li>战斗全程由系统进行模拟，当某一精灵的攻击冷却结束时，将会有<strong> 70% 的概率发动普通攻击</strong>，有<strong> 30% 的概率发动特殊攻击</strong>，然后将攻击冷却时间重置为其攻击间隔，等待下次攻击</li>
+                <li>普通攻击（所有精灵共有）的攻击伤害计算公式为：
+                  <div class="row d-flex justify-content-center"><i>普通攻击伤害 = (攻击方等级 * 0.4 + 2) * 攻击方攻击力 / 防御方防御力</i></div>
+                </li>
+                <li>特殊攻击除了对对方造成攻击伤害外，还会产生其他的特定效果，如给予对手负面状态等。详情请见“精灵技能”板块</li>
+                <li>精灵发动普通攻击时，有<strong> 10% 的概率打出暴击，本次攻击伤害将翻倍</strong>。注意，发动特殊攻击不会打出暴击</li>
+                <li>精灵受到普通攻击或特殊攻击时，有<strong> 10% 的概率进行闪避，避免本次伤害</strong>。注意，由负面状态产生的伤害无法被闪避</li>
+                <li>当某一方的 HP 降为 0 时，则宣告战斗结束，仍旧存活的一方为胜利方</li>
+                <li>升级赛或决斗赛胜利后，参战的精灵将获得一定的经验值，计算公式为：
+                  <div class="row d-flex justify-content-center"><i>获得经验值 = 对方等级 * 对方经验值 / 7</i></div>
+                </li>
+                <li>决斗赛战斗胜利后，用户将获得对方精灵</li>
+                <li>战斗失利后不会获得经验值，若用户参加的是决斗赛，则系统将从用户的精灵中随机选出 3 只，并由用户选择一只进行丢弃</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingThree">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed p-0" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <p class="lead m-0"><span class="left-icon"><i class="fas fa-stars"></i></span> 精灵技能</p>
+              </button>
+            </h2>
+          </div>
+          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+            <div class="card-body">
+              各个精灵除了拥有普通攻击技能之外，还拥有一个自己独有的特殊攻击技能，详情如下表：
+              <div class="row d-flex justify-content-center">
+                <table class="table table-striped my-2">
+                  <thead>
+                    <tr>
+                       <th style="width: 6rem;">精灵名称</th>
+                       <th style="width: 8rem;">特殊攻击名称</th>
+                       <th style="width: 18rem;">特殊攻击效果</th>
+                       <th style="width: 18rem;">负面状态说明</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                       <td>妙蛙种子</td>
+                       <td>寄生种子</td>
+                       <td class="text-left">使对方受到普通攻击 80% 的伤害，并使对方进入 <span class="badge badge-success">寄生</span> 状态</td>
+                       <td class="text-left"><span class="badge badge-success">寄生</span>：被寄生的精灵每秒钟会被妙蛙种子吸收总 HP 的 5%</td>
+                    </tr>
+                    <tr>
+                       <td>小火龙</td>
+                       <td>喷射火焰</td>
+                       <td class="text-left">使对方受到普通攻击 120% 的伤害，并使对方进入 <span class="badge badge-danger">烧伤</span> 状态</td>
+                       <td class="text-left"><span class="badge badge-danger">烧伤</span>：被烧伤的精灵每秒钟会受到总 HP 的 5% 的伤害</td>
+                    </tr>
+                    <tr>
+                       <td>杰尼龟</td>
+                       <td>水之波动</td>
+                       <td class="text-left">使对方受到普通攻击50%的伤害，并解除自身的负面状态</td>
+                       <td>无</td>
+                    </tr>
+                    <tr>
+                       <td>皮卡丘</td>
+                       <td>十万伏特</td>
+                       <td class="text-left">使对方受到普通攻击120%的伤害，并使对方进入 <span class="badge badge-warning">麻痹</span> 状态</td>
+                       <td class="text-left"><span class="badge badge-warning">麻痹</span>：被麻痹的精灵在发动普通攻击或特殊攻击时，有 50% 的几率动弹不得，无法发动攻击</td>
+                    </tr>
+                    <tr>
+                       <td>耿鬼</td>
+                       <td>毒液冲击</td>
+                       <td class="text-left">使对方受到普通攻击80%的伤害，并使对方进入 <span class="badge badge-dark">中毒</span> 状态</td>
+                       <td class="text-left"><span class="badge badge-dark">中毒</span>：中毒的精灵每秒钟会受到总 HP 的 5% 的伤害</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="/js/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="/js/fontawesome.min.js"></script>
+  <script type="text/javascript" src="/js/solid.js"></script>
+</body>
+</html>

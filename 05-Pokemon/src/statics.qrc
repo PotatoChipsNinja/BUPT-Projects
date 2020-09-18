@@ -1,0 +1,43 @@
+<RCC>
+    <qresource prefix="/">
+        <file>statics/index.html</file>
+        <file>statics/assets/bg.jpg</file>
+        <file>statics/assets/bulbasaur.png</file>
+        <file>statics/assets/charmander.png</file>
+        <file>statics/assets/digit.ttf</file>
+        <file>statics/assets/favicon.ico</file>
+        <file>statics/assets/gengar.png</file>
+        <file>statics/assets/logo.png</file>
+        <file>statics/assets/pikachu.png</file>
+        <file>statics/assets/squirtle.png</file>
+        <file>statics/battle/index.html</file>
+        <file>statics/css/battle.css</file>
+        <file>statics/css/bootstrap.min.css</file>
+        <file>statics/css/index.css</file>
+        <file>statics/css/login.css</file>
+        <file>statics/css/mermaid.min.css</file>
+        <file>statics/css/pack.css</file>
+        <file>statics/css/register.css</file>
+        <file>statics/css/style.css</file>
+        <file>statics/css/user.css</file>
+        <file>statics/css/wiki.css</file>
+        <file>statics/js/battle.js</file>
+        <file>statics/js/bootstrap.bundle.min.js</file>
+        <file>statics/js/chart.min.js</file>
+        <file>statics/js/check-login.js</file>
+        <file>statics/js/fontawesome.min.js</file>
+        <file>statics/js/gridjs.production.min.js</file>
+        <file>statics/js/index.js</file>
+        <file>statics/js/jquery-3.5.1.min.js</file>
+        <file>statics/js/login.js</file>
+        <file>statics/js/pack.js</file>
+        <file>statics/js/register.js</file>
+        <file>statics/js/solid.js</file>
+        <file>statics/js/user.js</file>
+        <file>statics/login/index.html</file>
+        <file>statics/pack/index.html</file>
+        <file>statics/register/index.html</file>
+        <file>statics/user/index.html</file>
+        <file>statics/wiki/index.html</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>首页 - 宠物小精灵在线对战平台</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/index.css">
+  <script type="text/javascript" src="/js/check-login.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand pr-3" href="/">
+      <img src="/assets/logo.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+      宠物小精灵在线对战平台
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">首页</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pack">精灵背包</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/battle">开始战斗</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/wiki">精灵百科</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user">用户列表</a>
+        </li>
+      </ul>
+      <div class="form-inline my-2 my-lg-0">
+        <button class="btn btn-outline-danger my-2 my-sm-0" onclick="logOut();"><i class="fas fa-sign-out-alt"></i> 登出</button>
+      </div>
+    </div>
+  </nav>
+  <div class="container my-5">
+    <div class="jumbotron m-auto col-lg-10 py-4">
+      <h1 class="display-4 text-center mb-4"><span id="title-username"></span>, 欢迎来到小精灵的世界！</h1>
+      <p class="lead"><i class="fas fa-id-card"></i> 基本信息</p>
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-auto">
+          <canvas id="win-rate-chart"></canvas>
+        </div>
+        <div class="col-auto row">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item py-1"><strong>战斗场次：</strong><span id="match-num"></span> 场</li>
+            <li class="list-group-item py-1"><strong>胜利场次：</strong><span id="win-num"></span> 场</li>
+            <li class="list-group-item py-1"><strong>失利场次：</strong><span id="lose-num"></span> 场</li>
+          </ul>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item py-1"><strong>战斗胜率：</strong><span id="win-rate"></span>%</li>
+            <li class="list-group-item py-1"><strong>全部精灵：</strong><span id="all-num"></span> 只 <span id="all-num-medal"></span></li>
+            <li class="list-group-item py-1"><strong>高级精灵：</strong><span id="advanced-num"></span> 只 <span id="advanced-num-medal"></span></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="my-4">
+      <p class="lead"><i class="fas fa-bring-forward"></i> 快捷入口</p>
+      <div class="row d-flex justify-content-center align-items-center mb-3">
+        <a class="btn card text-white bg-primary text-left p-0 mx-2" href="/pack">
+          <div class="card-body row p-3">
+            <div class="col-auto align-self-center pr-0 icon-col">
+              <i class="fas fa-box-open big-icon"></i>
+            </div>
+            <div class="col-auto align-self-center">
+              <h5>精灵背包</h5>
+              <p class="card-text">查看你拥有的小精灵们</p>
+            </div>
+          </div>
+        </a>
+        <a class="btn card text-white bg-danger text-left p-0 mx-2" href="/battle">
+          <div class="card-body row p-3">
+            <div class="col-auto align-self-center pr-0 icon-col">
+              <i class="fas fa-swords big-icon"></i>
+            </div>
+            <div class="col-auto align-self-center">
+              <h5>开始战斗</h5>
+              <p class="card-text">与虚拟对手展开较量</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="row d-flex justify-content-center align-items-center">
+        <a class="btn card text-white bg-info text-left p-0 mx-2" href="/wiki">
+          <div class="card-body row p-3">
+            <div class="col-auto align-self-center pr-0 icon-col">
+              <i class="fas fa-book big-icon"></i>
+            </div>
+            <div class="col-auto align-self-center">
+              <h5>精灵百科</h5>
+              <p class="card-text">了解游戏机制与精灵技能</p>
+            </div>
+          </div>
+        </a>
+        <a class="btn card text-white bg-success text-left p-0 mx-2" href="/user">
+          <div class="card-body row p-3">
+            <div class="col-auto align-self-center pr-0 icon-col">
+              <i class="fas fa-users big-icon"></i>
+            </div>
+            <div class="col-auto align-self-center">
+              <h5>用户列表</h5>
+              <p class="card-text">查看游戏中的其他玩家</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="/js/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="/js/chart.min.js"></script>
+  <script type="text/javascript" src="/js/index.js"></script>
+  <script type="text/javascript" src="/js/fontawesome.min.js"></script>
+  <script type="text/javascript" src="/js/solid.js"></script>
+</body>
+</html>

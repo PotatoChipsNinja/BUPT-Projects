@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>战斗 - 宠物小精灵在线对战平台</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/mermaid.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/battle.css">
+  <script type="text/javascript" src="/js/check-login.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand pr-3" href="/">
+      <img src="/assets/logo.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+      宠物小精灵在线对战平台
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">首页</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pack">精灵背包</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/battle">开始战斗</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/wiki">精灵百科</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user">用户列表</a>
+        </li>
+      </ul>
+      <div class="form-inline my-2 my-lg-0">
+        <button class="btn btn-outline-danger my-2 my-sm-0" onclick="logOut();"><i class="fas fa-sign-out-alt"></i> 登出</button>
+      </div>
+    </div>
+  </nav>
+  <div class="container my-5">
+    <div class="jumbotron m-auto col-lg-10 py-4">
+
+      <div id="stage-1">
+        <div class="d-flex justify-content-between">
+          <p class="lead my-0"><span class="left-icon"><i class="fas fa-ballot-check"></i></span> 请选择战斗类型</p>
+        </div>
+        <hr class="mt-2 mb-4">
+        <div class="row d-flex justify-content-center">
+          <a class="card btn text-left text-white bg-primary mb-3 col-5 mx-3 p-2" onclick="chooseType(0);">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <div class="row align-items-center justify-content-center big-icon">
+                  <i class="fas fa-paper-plane"></i>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body px-0">
+                  <h5 class="card-title">升级赛</h5>
+                  <ul class="pl-3">
+                    <li>获胜将获得经验</li>
+                    <li>失败将不会得到经验</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a class="card btn text-left text-white bg-danger mb-3 col-5 mx-3 p-2" onclick="chooseType(1);">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <div class="row align-items-center justify-content-center big-icon">
+                  <i class="fas fa-swords"></i>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body px-0">
+                  <h5 class="card-title">决斗赛</h5>
+                  <ul class="pl-3">
+                    <li>获胜将获得经验和对方精灵</li>
+                    <li>失败将丢失一只精灵</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div id="stage-2" hidden="hidden">
+        <div class="d-flex justify-content-between">
+          <p class="lead my-0"><span class="left-icon"><i class="fas fa-robot"></i></span> 请选择虚拟对手</p>
+          <button type="button" class="btn btn-warning" onclick="refreshOpponentList();"><i class="fas fa-sync-alt"></i> 换一批</button>
+        </div>
+        <hr class="mt-2 mb-4">
+        <div class="row d-flex justify-content-around" id="opponent-list"></div>
+      </div>
+
+      <div id="stage-3" hidden="hidden">
+        <div class="d-flex justify-content-between">
+          <p class="lead my-0"><span class="left-icon"><i class="fas fa-ghost"></i></span> 请选择参战精灵</p>
+        </div>
+        <hr class="mt-2 mb-4">
+        <div id="pokemon-list"></div>
+      </div>
+
+      <div id="stage-4" hidden="hidden">
+        <div class="d-flex justify-content-between">
+          <p class="lead my-0"><span class="left-icon"><i class="fas fa-swords"></i></span> 战斗模拟</p>
+        </div>
+        <hr class="mt-2 mb-3">
+        
+        <div class="row d-flex justify-content-between">
+          <div class="col-5">
+            <div class="row battle-panel-left">
+              <div class="battle-avatar-left pt-1"><i class="fas fa-user"></i></div>
+              <div class="full-width">
+                <div class="row my-1 mx-2">
+                  <span class="full-width text-left"><strong><span id="user-pokemon-name"></span></strong><span class="badge badge-pill badge-info ml-2">Lv.<span id="user-pokemon-level"></span></span></span>
+                </div>
+                <div class="row m-0 progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger battle-panel-hp-bar-left" role="progressbar" id="user-pokemon-HP-bar"></div>
+                  <div class="battle-panel-hp"><span id="user-pokemon-current-HP"></span>/<span id="user-pokemon-total-HP"></span></div>
+                </div>
+                <div class="row mx-2 mt-2 float-left" id="user-pokemon-debuff"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-2">
+            <div class="row d-flex justify-content-center battle-time" id="clock">00</div>
+          </div>
+
+          <div class="col-5">
+            <div class="row battle-panel-right">
+              <div class="full-width">
+                <div class="row my-1 mx-2">
+                  <span class="full-width text-right"><strong><span id="opponent-pokemon-name"></span></strong><span class="badge badge-pill badge-info ml-2">Lv.<span id="opponent-pokemon-level"></span></span></span>
+                </div>
+                <div class="row m-0 progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger battle-panel-hp-bar-right" role="progressbar" id="opponent-pokemon-HP-bar"></div>
+                  <div class="battle-panel-hp"><span id="opponent-pokemon-current-HP"></span>/<span id="opponent-pokemon-total-HP"></span></div>
+                </div>
+                <div class="row mx-2 mt-2 float-right" id="opponent-pokemon-debuff"></div>
+              </div>
+              <div class="battle-avatar-right pt-1"><i class="fas fa-user-robot"></i></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row d-flex justify-content-between mt-2" style="height: 1.5rem; padding-left: 2.5rem; padding-right: 2.5rem;">
+          <span class="HP-info" id="user-pokemon-HP-info"></span>
+          <span class="HP-info" id="opponent-pokemon-HP-info"></span>
+        </div>
+        <div class="row d-flex justify-content-between mt-2 px-4">
+          <span class="battle-pokemon-img" id="pokemon-user"></span>
+          <span class="battle-pokemon-img" id="pokemon-opponent"></span>
+        </div>
+
+        <div class="row d-flex justify-content-between mt-4">
+          <div class="col-6">
+            <p class="lead my-0"><span class="left-icon"><i class="fas fa-file-signature"></i></span> 战斗日志</p>
+            <textarea class="form-control" id="battle-log" readonly="readonly">• 战斗开始</textarea>
+          </div>
+          <div class="col-6">
+            <p class="lead my-0"><span class="left-icon"><i class="fas fa-tachometer-alt"></i></span> 模拟控制</p>
+            <div id="simulation-control-panel">
+              <div class="row d-flex justify-content-center my-1">
+                <div class="card bg-light mx-2" id="adjust-speed-card">
+                  <div class="card-body row py-0 px-2 m-0 align-items-center">
+                    调整模拟速率：
+                    <input type="range" class="form-control-range mr-2" id="speed-input" onmousemove="changeSpeed();">
+                    <strong>×<span id="speed-output">1.0</span></strong>
+                  </div>
+                </div>
+              </div>
+              <div class="row d-flex justify-content-center">
+                <button type="button" class="btn btn-warning mx-2" onclick="resetSpeed();"><i class="fas fa-redo-alt"></i> 恢复正常速度</button>
+                <button type="button" class="btn btn-warning mx-2" id="pause-button" onclick="pauseSimulation();"><i class="fas fa-pause"></i> 暂停模拟</button>
+                <button type="button" class="btn btn-warning mx-2" onclick="skip();"><i class="fas fa-fast-forward"></i> 跳过模拟</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="stage-win" hidden="hidden">
+        <h1 class="display-4" style="font-size: 3rem;">恭喜您，战斗胜利了！</h1>
+        <hr class="my-4">
+        <p class="lead"><span id="duel-win-text" hidden="hidden">刚刚与您对战的精灵已经放入您的精灵背包，</span>出战的<span id="win-pokemon"></span>获得了 <span id="get-exp"></span> 点经验值：</p>
+        <div class="text-center">
+          <div class="card bg-light mb-3 text-left" id="card-pokemon-finish"></div>
+          <hr class="my-2">
+          <a class="btn btn-primary" href="/" role="button">返回首页</a>
+        </div>
+      </div>
+
+      <div id="stage-lose-upgrade" hidden="hidden">
+        <h1 class="display-4" style="font-size: 3rem;">很遗憾，战斗失败了！</h1>
+        <hr class="my-4">
+        <div class="text-center">
+          <p class="lead">您出战的精灵没能获得经验值</p>
+          <hr class="my-2">
+          <a class="btn btn-primary mt-2" href="/" role="button">返回首页</a>
+        </div>
+      </div>
+
+      <div id="stage-lose-duel" hidden="hidden">
+        <h1 class="display-4" style="font-size: 3rem;">很遗憾，战斗失败了！</h1>
+        <hr class="my-4">
+
+        <div id="to-discard">
+          <p class="lead">请选择一只精灵进行丢弃：</p>
+          <div class="row d-flex justify-content-center" id="discard-list"></div>
+        </div>
+        <div class="text-center" id="has-discard" hidden="hidden">
+          <p class="lead">您丢弃了<span id="discarded-pokemon-name">小火龙</span></p>
+          <p class="lead" id="discard-all" hidden="hidden">由于您失去了所有的精灵，系统已为您分配一只初始精灵</p>
+          <hr class="my-2">
+          <a class="btn btn-primary mt-2" href="/" role="button">返回首页</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script type="text/javascript" src="/js/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="/js/battle.js"></script>
+  <script type="text/javascript" src="/js/fontawesome.min.js"></script>
+  <script type="text/javascript" src="/js/solid.js"></script>
+</body>
+</html>
