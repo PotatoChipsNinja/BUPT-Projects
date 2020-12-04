@@ -18,3 +18,7 @@
   - [COVID-19 疫情环境下低风险旅行模拟系统](04-COVID-19_Travel_System)
 - 面向对象程序设计实践（C++）
   - [宠物小精灵对战系统](05-Pokemon)
+
+### 大三上学期
+- 程序设计实践
+  - [FooCloud](https://github.com/PotatoChipsNinja/FooCloud)
